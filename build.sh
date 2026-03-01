@@ -2,7 +2,7 @@
 
 set -e
 
-[ -d SPIRV-Reflect ] || git clone https://github.com/KhronosGroup/SPIRV-Reflect --depth 1
+[ -d SPIRV-Reflect ] || git clone --revision ef913b3ab3da1becca3cf46b15a10667c67bebe5 https://github.com/KhronosGroup/SPIRV-Reflect --depth 1
 
 echo "Building SPIRV-Reflect.."
 cd SPIRV-Reflect

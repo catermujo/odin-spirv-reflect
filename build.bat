@@ -3,7 +3,7 @@
 setlocal EnableDelayedExpansion
 
 if not exist SPIRV-Reflect (
-    git clone --recurse-submodules https://github.com/KhronosGroup/SPIRV-Reflect --depth=1
+    git clone --recurse-submodules --revision ef913b3ab3da1becca3cf46b15a10667c67bebe5 https://github.com/KhronosGroup/SPIRV-Reflect --depth=1
 )
 
 set binaries_dir=build
