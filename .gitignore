@@ -1,2 +1,4 @@
 /SPIRV-Reflect
+# DUMBAI: Ignore the local Windows CMake output tree; the committed artifact is copied to spirv.lib.
+/build
 
