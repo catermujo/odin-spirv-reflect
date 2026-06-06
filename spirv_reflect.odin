@@ -1282,11 +1282,29 @@ SpvOp :: enum (u32) {
 
 
 when ODIN_OS == .Windows {
-    foreign import spirv_reflect "spirv.lib"
+    when ODIN_ARCH == .amd64 {
+        foreign import spirv_reflect "windows_x64/spirv.lib"
+    } else when ODIN_ARCH == .arm64 {
+        foreign import spirv_reflect "windows_arm64/spirv.lib"
+    } else {
+        #panic("vendor/spirv supports windows amd64/arm64 only")
+    }
 } else when ODIN_OS == .Darwin {
-    foreign import spirv_reflect "spirv.darwin.a"
+    when ODIN_ARCH == .amd64 {
+        foreign import spirv_reflect "darwin_x64/spirv.darwin.a"
+    } else when ODIN_ARCH == .arm64 {
+        foreign import spirv_reflect "darwin_arm64/spirv.darwin.a"
+    } else {
+        #panic("vendor/spirv supports Darwin amd64/arm64 only")
+    }
 } else {
-    foreign import spirv_reflect "spirv.linux.a"
+    when ODIN_ARCH == .amd64 {
+        foreign import spirv_reflect "linux_x64/spirv.linux.a"
+    } else when ODIN_ARCH == .arm64 {
+        foreign import spirv_reflect "linux_arm64/spirv.linux.a"
+    } else {
+        #panic("vendor/spirv supports Linux amd64/arm64 only")
+    }
 }
 
 /* Procedures */
