@@ -17,11 +17,11 @@ set source_dir=SPIRV-Reflect
 set binaries_dir=build
 
 echo Configuring build...
-REM DUMBAI: Configure the checked-out upstream project instead of the wrapper folder.
+REM Configure the checked-out upstream project instead of the wrapper folder.
 cmake -S %source_dir% -B %binaries_dir% -A %VENDOR_WINDOWS_ARCH% -DSPIRV_REFLECT_EXECUTABLE=OFF -DSPIRV_REFLECT_STATIC_LIB=ON -DCMAKE_BUILD_TYPE=Release -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreaded || exit /b 1
 
 echo Building project...
-REM DUMBAI: Let CMake pick the active Windows generator instead of assuming make exists.
+REM Let CMake pick the active Windows generator instead of assuming make exists.
 cmake --build %binaries_dir% --config Release || exit /b 1
 
 if not exist %output_dir% mkdir %output_dir%
